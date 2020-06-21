@@ -7,33 +7,38 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
 <h:form>
-    <h:messages style="color: red"/>
-    <h:panelGrid columns="2">
-        <h:panelGrid columns="2">
-            <h:outputLabel value="Username"/>
-            <h:inputText id="username" value="#{user.username}" label="User name" required="true" validatorMessage="Toi thieu 3 ky tu"
-                         requiredMessage="Chua nhap username">
-                <f:validateLength minimum="3"/>
-<!--                <f:validator validatorId="CustomValidator"/>-->
-            </h:inputText>
+    <ui:composition template="template/template.xhtml">
+        <ui:define name="content">
+            <h:messages style="color: red"/>
+            <h:panelGrid columns="2">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Username"/>
+                    <h:inputText id="username" value="#{user.username}" label="User name" required="true" validatorMessage="Toi thieu 3 ky tu"
+                                 requiredMessage="Chua nhap username">
+                        <f:validateLength minimum="3"/>
+                        <!--                <f:validator validatorId="CustomValidator"/>-->
+                    </h:inputText>
 
 
 
-            <h:outputLabel value="Password"/>
-            <h:inputSecret id="password" value="#{user.password}" label="Password"/>
+                    <h:outputLabel value="Password"/>
+                    <h:inputSecret id="password" value="#{user.password}" label="Password"/>
 
 
 
-            <h:outputLabel value="Gender"/>
-            <h:selectOneMenu value="#{user.gender}">
-                <f:selectItem itemValue="Male" itemLabel="Male label"/>
-                <f:selectItem itemValue="Female" itemLabel="Female label"/>
-                <f:selectItem itemValue="Female" itemLabel="Female label"/>
-            </h:selectOneMenu>
+                    <h:outputLabel value="Gender"/>
+                    <h:selectOneMenu value="#{user.gender}">
+                        <f:selectItem itemValue="Male" itemLabel="Male label"/>
+                        <f:selectItem itemValue="Female" itemLabel="Female label"/>
+                        <f:selectItem itemValue="Female" itemLabel="Female label"/>
+                    </h:selectOneMenu>
 
-            <h:commandButton value="LOGIN" action="#{userBean.addUser(user)}" />
-        </h:panelGrid>
-    </h:panelGrid>
+                    <h:commandButton value="LOGIN" action="#{userBean.addUser(user)}" />
+                </h:panelGrid>
+            </h:panelGrid>
+        </ui:define>
+    </ui:composition>
+
 </h:form>
 </h:body>
 </html>
