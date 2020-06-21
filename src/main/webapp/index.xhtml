@@ -7,10 +7,15 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:body>
 <h:form>
+    <h:messages style="color: red"/>
     <h:panelGrid columns="2">
         <h:panelGrid columns="2">
             <h:outputLabel value="Username"/>
-            <h:inputText id="username" value="#{user.username}" label="User name" />
+            <h:inputText id="username" value="#{user.username}" label="User name" required="true" validatorMessage="Toi thieu 3 ky tu"
+                         requiredMessage="Chua nhap username">
+                <f:validateLength minimum="3"/>
+<!--                <f:validator validatorId="CustomValidator"/>-->
+            </h:inputText>
 
 
 
