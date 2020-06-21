@@ -5,7 +5,30 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+<h:body>
+<h:form>
+    <h:panelGrid columns="2">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Username"/>
+            <h:inputText id="username" value="#{user.username}" label="User name" />
+
+
+
+            <h:outputLabel value="Password"/>
+            <h:inputSecret id="password" value="#{user.password}" label="Password"/>
+
+
+
+            <h:outputLabel value="Gender"/>
+            <h:selectOneMenu value="#{user.gender}">
+                <f:selectItem itemValue="Male" itemLabel="Male label"/>
+                <f:selectItem itemValue="Female" itemLabel="Female label"/>
+                <f:selectItem itemValue="Female" itemLabel="Female label"/>
+            </h:selectOneMenu>
+
+            <h:commandButton value="LOGIN" action="#{userBean.addUser(user)}" />
+        </h:panelGrid>
+    </h:panelGrid>
+</h:form>
+</h:body>
 </html>
